@@ -30,4 +30,26 @@ defmodule Calculator.Operations do
   def add(a, b) do
     a + b
   end
+
+  @doc """
+  Subtracts the second number from the first number.
+
+  ## Parameters
+
+    - `a`: The first number (integer or float).
+    - `b`: The second number (integer or float).
+
+  ## Examples
+
+      iex> Calculator.Operations.subtract(5, 3)
+      2
+
+      iex> Calculator.Operations.subtract(5.5, 2.2)
+      3.3
+
+  """
+  @spec subtract(number, number) :: number
+  def subtract(a, b) do
+    a - b
+  end
 end
