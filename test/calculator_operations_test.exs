@@ -119,4 +119,44 @@ defmodule Calculator.OperationsTest do
       end
     end
   end
+
+  describe "multiply/2" do
+    test "multiplies two positive numbers" do
+      assert Calculator.Operations.multiply(4, 5) == 20
+    end
+
+    test "multiplies two negative numbers" do
+      assert Calculator.Operations.multiply(-4, -5) == 20
+    end
+
+    test "multiplies a positive number by a negative number" do
+      assert Calculator.Operations.multiply(4, -5) == -20
+    end
+
+    test "multiplies a negative number by a positive number" do
+      assert Calculator.Operations.multiply(-4, 5) == -20
+    end
+
+    test "multiplies two floating-point numbers" do
+      assert Calculator.Operations.multiply(3.5, 2.0) == 7.0
+    end
+
+    test "multiplies a positive number by a floating-point number" do
+      assert Calculator.Operations.multiply(3, 2.5) == 7.5
+    end
+
+    test "multiplies a negative number by a floating-point number" do
+      assert Calculator.Operations.multiply(-3, 2.5) == -7.5
+    end
+
+    test "multiplies a number by zero" do
+      assert Calculator.Operations.multiply(5, 0) == 0
+      assert Calculator.Operations.multiply(0, 5) == 0
+    end
+
+    test "multiplies very large numbers" do
+      assert Calculator.Operations.multiply(1_000_000, 2) == 2_000_000
+      assert Calculator.Operations.multiply(-1_000_000, -2) == 2_000_000
+    end
+  end
 end

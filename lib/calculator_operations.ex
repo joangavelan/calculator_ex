@@ -82,4 +82,26 @@ defmodule Calculator.Operations do
   def divide(a, b) do
     a / b
   end
+
+  @doc """
+  Multiplies two numbers.
+
+  ## Parameters
+
+    - `a`: The first number (integer or float).
+    - `b`: The second number (integer or float).
+
+  ## Examples
+
+      iex> Calculator.Operations.multiply(4, 5)
+      20
+
+      iex> Calculator.Operations.multiply(3.5, 2.0)
+      7.0
+
+  """
+  @spec multiply(number, number) :: number
+  def multiply(a, b) do
+    a * b
+  end
 end
