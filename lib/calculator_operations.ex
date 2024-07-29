@@ -52,4 +52,34 @@ defmodule Calculator.Operations do
   def subtract(a, b) do
     a - b
   end
+
+  @doc """
+  Divides the first number by the second number.
+
+  ## Parameters
+
+    - `a`: The dividend (integer or float).
+    - `b`: The divisor (integer or float).
+
+  ## Examples
+
+      iex> Calculator.Operations.divide(6, 3)
+      2.0
+
+      iex> Calculator.Operations.divide(7.5, 2.5)
+      3.0
+
+  ## Errors
+
+  Raises an `ArithmeticError` if attempting to divide by zero.
+
+  """
+  @spec divide(number, number) :: number
+  def divide(_a, 0) do
+    raise ArithmeticError, message: "cannot divide by zero"
+  end
+
+  def divide(a, b) do
+    a / b
+  end
 end

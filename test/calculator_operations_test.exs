@@ -83,4 +83,40 @@ defmodule Calculator.OperationsTest do
       assert Calculator.Operations.subtract(-1_000_000, -500_000) == -500_000
     end
   end
+
+  describe "divide/2" do
+    test "divides two positive numbers" do
+      assert Calculator.Operations.divide(6, 3) == 2
+    end
+
+    test "divides two negative numbers" do
+      assert Calculator.Operations.divide(-6, -3) == 2
+    end
+
+    test "divides a positive number by a negative number" do
+      assert Calculator.Operations.divide(6, -3) == -2
+    end
+
+    test "divides a negative number by a positive number" do
+      assert Calculator.Operations.divide(-6, 3) == -2
+    end
+
+    test "divides two floating-point numbers" do
+      assert Calculator.Operations.divide(7.5, 2.5) == 3.0
+    end
+
+    test "divides a positive number by a floating-point number" do
+      assert Calculator.Operations.divide(7, 2.5) == 2.8
+    end
+
+    test "divides a negative number by a floating-point number" do
+      assert Calculator.Operations.divide(-7, 2.5) == -2.8
+    end
+
+    test "division by zero returns an error" do
+      assert_raise ArithmeticError, fn ->
+        Calculator.Operations.divide(7, 0)
+      end
+    end
+  end
 end
